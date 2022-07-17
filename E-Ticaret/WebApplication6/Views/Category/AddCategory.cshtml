@@ -1,0 +1,21 @@
+﻿@model WebApplication6.Models.Entity.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddCategory</h1>
+<form class="form-group" method="post">
+    <div style="margin-bottom:20px">
+        <label>Kategori Adı</label>
+        <input type="text" asp-for="@Model.CategoryName" class="form-control" />
+    </div>
+    <div style="margin-bottom:20px">
+        <label>Kategori Açıklama</label>
+        <input type="text" asp-for="@Model.CategoryDescripton" class="form-control" />
+    </div>
+    <div>
+        <button class="btn btn-primary">Kaydet</button>
+    </div>
+</form>
+

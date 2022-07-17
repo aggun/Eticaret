@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebApplication6.Models.Entity.Category>
+<nav id="mainmenu" class="mainmenu">
+    <ul>
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="/User/ProductByCategory/@item.CategoryId">@item.CategoryName</a>
+          </li>
+              }         <li> 
+<a href="/User/MyOrders/">Siparişlerim </a>
+</li>
+        </ul>
+    </nav>

@@ -1,0 +1,23 @@
+﻿@model WebApplication6.Models.Entity.Order
+@{
+    ViewData["Title"] = "AddOrder";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Sipariş Ver</h1>
+<form class="form-group" method="post">
+    <div style="margin-bottom:20px">
+        <label>Miktar</label> 
+       <input type="number" name="Txtqnt" asp-for="@Model.ProducQuantity" class="form-control"  />
+    </div>
+    <div>
+        @Html.Label("Banka")
+        @Html.DropDownListFor(x => x.BankId, (List<SelectListItem>)ViewBag.bank, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-primary">Sipariş Ver</button>
+    </div>
+</form>
+
+

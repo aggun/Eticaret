@@ -1,0 +1,42 @@
+﻿@using WebApplication6.Models.Entity
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string status;
+    string format;
+       int i = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Sıra</th>
+        <th>Kategori Adı</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>GÜNCELLE</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@(i=i+1)</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescripton</td>
+            @if (item.CategoryStatus == true)
+            {
+                status = "Pasif Yap";
+                format = "btn btn-danger";
+            }
+            else
+            {
+                status = "Aktif Yap";
+                format = "btn btn-success";
+            }
+            <td><a href="/Category/ChangeStatusCategory/@item.CategoryId" class="@format">@status</a></td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<a href="/Category/AddCategory/" class="btn btn-outline-success col-12">Yeni Kategori</a>
